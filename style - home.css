@@ -114,6 +114,15 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Subtle lift and dark shadow on hover */
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.04);
 }
 
 .project-card img {
