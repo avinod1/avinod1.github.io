@@ -1,58 +1,81 @@
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     background: #F7F8FA;
-}
-.name {
-    position: absolute;
-    left: 67px;
-    top: 35px;
-    width: 410px;
-    height: 71px;
     font-family: 'Instrument Serif', serif;
-    font-size: 64px;
-    font-weight: 400;
     color: black;
 }
 
 a {
     text-decoration: none;
+    color: black;
 }
 
-/* Container holding the entire About Me section + Profile Image */
-.about-hero-container {
-    position: absolute;
-    top: 180px;                            /* Anchors below your top nav */
-    left: 0;
+/* Page wrapper locking 67px spacing on left and right */
+.page-wrapper {
     width: 100%;
-    padding: 0 72px;                       /* Aligns with your 72px left margin */
+    padding: 35px 67px 0 67px; /* 35px top margin matching your original top: 35px */
     box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 1.3fr 0.7fr;    /* Text gets ~65%, Image gets ~35% */
-    gap: 40px;                             /* Space between text and picture */
-    align-items: start;
 }
 
-/* About Me header */
+/* Header & Name */
+.site-header {
+    margin-bottom: 40px;
+}
+
+.name {
+    font-family: 'Instrument Serif', serif;
+    font-size: 64px;       /* Restored to your original 64px */
+    font-weight: 400;
+    color: black;
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+
+/* Top Nav Links */
+.nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 20px;
+    font-family: 'Instrument Serif', serif;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* About Section */
+.about-hero-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 60px;
+}
+
 .about-heading {
     font-size: 48px;
     font-family: 'Instrument Serif', serif;
     font-weight: 400;
     color: black;
-    margin-bottom: 24px;
+    margin: 0 0 24px 0;
 }
 
-/* Paragraph styling */
 .about-text p {
     font-size: 24px;
     font-family: 'Instrument Serif', serif;
     font-weight: 400;
     line-height: 1.4;
     color: black;
-    margin: 0 0 16px 0;                    /* Spacing between the two paragraphs */
+    margin: 0 0 16px 0;
 }
 
-/* Fluid profile picture */
+/* Profile Picture shifted higher relative to the About heading */
 .profile-pic {
     width: 100%;
     max-width: 440px;
@@ -60,36 +83,39 @@ a {
     object-fit: cover;
     border-radius: 12px;
     justify-self: end;
-    
-    /* Pulls the image higher relative to the About Me text */
-    margin-top: -60px; 
+    margin-top: -60px;     /* Restored your -60px upward shift */
 }
 
-/* Container for the 3 project cards */
+/* Projects Section */
+.projects-section {
+    margin-bottom: 70px;
+}
+
+.projects-heading {
+    font-size: 48px;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    color: black;
+    margin: 0 0 24px 0;
+}
+
+/* 3-Column Project Grid that automatically wraps into 2 rows for 4–6 projects */
 .projects-container {
-    position: absolute;
-    top: 640px;                            /* Sits below the Projects title (which is at top: 559px) */
-    left: 0;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-    gap: 24px;                             /* Space between cards */
-    padding: 0 67px;                       /* Aligns with your 67px left margin */
-    box-sizing: border-box;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px 24px;
 }
 
-/* Individual card styling */
 .project-card {
     background: #D9D9D9;
     border-radius: 20px;
     padding: 20px;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Fluid image sizing */
 .project-card img {
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -97,11 +123,74 @@ a {
     border-radius: 10px;
 }
 
-/* Card title styling */
 .project-title {
     margin-top: 16px;
     font-family: 'Intel One Mono', monospace;
     font-size: 24px;
     text-align: center;
     color: black;
+}
+
+/* Placeholder card for upcoming 6th slot */
+.project-card.placeholder {
+    background: transparent;
+    border: 2px dashed #B0B5BD;
+    justify-content: center;
+    min-height: 250px;
+    color: #6B7280;
+}
+
+/* Education Section */
+.education-section {
+    margin-bottom: 80px;
+}
+
+.education-heading {
+    font-size: 48px;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    color: black;
+    margin: 0 0 16px 0;
+}
+
+.education-text {
+    font-size: 24px;
+    font-family: 'Instrument Serif', serif;
+    line-height: 1.5;
+    color: black;
+}
+
+/* Footer Section */
+.site-footer {
+    width: 100%;
+    background: #E5E7EB;
+    padding: 40px 67px;
+    font-family: 'Instrument Serif', serif;
+    font-size: 20px;
+    line-height: 1.6;
+    box-sizing: border-box;
+}
+
+.site-footer a {
+    text-decoration: underline;
+}
+
+/* Responsive collapse for small screens */
+@media (max-width: 900px) {
+    .about-hero-container {
+        grid-template-columns: 1fr;
+    }
+    .profile-pic {
+        justify-self: start;
+        margin-top: 0;
+    }
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+    .page-wrapper {
+        padding: 24px 24px 0 24px;
+    }
+    .site-footer {
+        padding: 30px 24px;
+    }
 }
