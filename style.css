@@ -1,0 +1,234 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #F7F8FA;
+    font-family: 'Instrument Serif', serif;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Full-width sticky header */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 35px 67px 12px 67px; /* 67px side padding aligns text with page-wrapper */
+    box-sizing: border-box;
+    background-color: transparent;
+    border-bottom: 1px solid transparent; /* Reserve border space to prevent 1px jump */
+    transition: background-color 0.2s ease, backdrop-filter 0.2s ease, border-bottom 0.2s ease, padding 0.2s ease;
+}
+
+/* Edge-to-edge 10% translucent frosted glass when scrolled */
+.site-header.scrolled {
+    background-color: rgba(247, 248, 250, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Adjust page-wrapper top padding since header now handles top spacing */
+.page-wrapper {
+    width: 100%;
+    padding: 25px 67px 0 67px;
+    box-sizing: border-box;
+}
+
+/* Keep mobile responsiveness aligned */
+@media (max-width: 900px) {
+    .site-header,
+    .site-header.scrolled {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .page-wrapper {
+        padding: 20px 24px 0 24px;
+    }
+}
+
+.name {
+    font-family: 'Instrument Serif', serif;
+    font-size: 64px;       /* Restored to your original 64px */
+    font-weight: 400;
+    color: black;
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+
+/* Top Nav Links */
+.nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 20px;
+    font-family: 'Instrument Serif', serif;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* About Section */
+.about-hero-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 60px;
+}
+
+.about-heading {
+    font-size: 48px;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    color: black;
+    margin: 0 0 24px 0;
+}
+
+.about-text p {
+    font-size: 24px;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    line-height: 1.4;
+    color: black;
+    margin: 0 0 16px 0;
+}
+
+/* Profile Picture shifted higher relative to the About heading */
+.profile-pic {
+    width: 100%;
+    max-width: 440px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    justify-self: end;
+    margin-top: -60px;     /* Restored your -60px upward shift */
+}
+
+/* Projects Section */
+.projects-section {
+    margin-bottom: 70px;
+}
+
+.projects-heading {
+    font-size: 48px;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    color: black;
+    margin: 0 0 24px 0;
+}
+
+/* 3-Column Project Grid that automatically wraps into 2 rows for 4–6 projects */
+.projects-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px 24px;
+}
+
+.project-card {
+    background: #D9D9D9;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Subtle lift and dark shadow on hover */
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.04);
+}
+
+.project-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.project-title {
+    margin-top: 16px;
+    font-family: 'Intel One Mono', monospace;
+    font-size: 24px;
+    text-align: center;
+    color: black;
+}
+
+/* Placeholder card for upcoming 6th slot */
+.project-card.placeholder {
+    background: transparent;
+    border: 2px dashed #B0B5BD;
+    justify-content: center;
+    min-height: 250px;
+    color: #6B7280;
+}
+
+/* Education Section */
+.education-section {
+    margin-bottom: 80px;
+}
+
+.education-heading {
+    font-size: 48px;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    color: black;
+    margin: 0 0 16px 0;
+}
+
+.education-text {
+    font-size: 24px;
+    font-family: 'Instrument Serif', serif;
+    line-height: 1.5;
+    color: black;
+}
+
+/* Footer Section */
+.site-footer {
+    width: 100%;
+    background: #E5E7EB;
+    padding: 40px 67px;
+    font-family: 'Instrument Serif', serif;
+    font-size: 20px;
+    line-height: 1.6;
+    box-sizing: border-box;
+}
+
+.site-footer a {
+    text-decoration: underline;
+}
+
+/* Responsive collapse for small screens */
+@media (max-width: 900px) {
+    .about-hero-container {
+        grid-template-columns: 1fr;
+    }
+    .profile-pic {
+        justify-self: start;
+        margin-top: 0;
+    }
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+    .page-wrapper {
+        padding: 24px 24px 0 24px;
+    }
+    .site-footer {
+        padding: 30px 24px;
+    }
+}
