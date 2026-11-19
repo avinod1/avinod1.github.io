@@ -14,7 +14,6 @@
         <link rel="stylesheet" href="style - home.css" />
     </head>
     <body>
-        <div class="page-wrapper">
         <!-- Header -->
         <header class="site-header">
             <div class="name">Ashwin Vinod</div>
@@ -25,7 +24,8 @@
                 <a href="mailto:av123v2005@gmail.com">Email</a>
             </nav>
         </header>
-
+        <div class="page-wrapper">
+        
         <!-- About Section -->
         <section class="about-hero-container">
             <div class="about-text">
@@ -48,7 +48,7 @@
                     <img src="Human vs AI - Correlation.png" alt="Human vs AI - Text Distinguishing Model" />
                     <div class="project-title">Human vs AI - Text Distinguishing Model</div>
                 </a>
-                <a class="project-card" href="https://github.com/cs340-25/CorrugatedPaper" target="_blank">
+                <a class="project-card" href="CorrugatedPaper/index - home.html" target="_blank">
                     <img src="Corrugated Paper - Home.jpg" alt="Corrugated Paper" />
                     <div class="project-title">Corrugated Paper</div>
                 </a>
@@ -85,5 +85,15 @@
         +1 615-724-8210<br/>
         <a href="mailto:av123v2005@gmail.com">av123v2005@gmail.com</a>
     </footer>
+    <script>
+        const header = document.querySelector('.site-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else if (window.scrollY < 5) {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
     </body>
 </html>
